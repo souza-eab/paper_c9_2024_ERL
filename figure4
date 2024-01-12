@@ -235,20 +235,11 @@ plot1 <- df %>%
 plot(plot1)
 
 
-plot1<- plot1+ theme(legend.position="bottom")
-
-
-ggsave("Plot4", width = 12, height = 12, units = "cm", device = png)
+plot2<- plot1+ theme(legend.position="bottom")
 
 
 
-ggsave(filename = "Figure4jpg",plot = plot1, 
-       height = 7, width = 8, dpi = 400,
-       bg = "#FFFFFF")
-
-
-
-ggsave("Figure4.jpeg", plot = plot1, 
+ggsave("Figure4_OK.jpeg", plot = plot2, 
        width = 15,
        height = 12,
        units = c("cm"),
