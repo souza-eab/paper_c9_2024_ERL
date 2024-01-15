@@ -136,7 +136,10 @@ plot11 <- df %>%
   geom_bar(position="stack", stat="identity", width = 0.75, na.rm = T)+
   geom_hline(yintercept = 0, show.legend =F, colour = "black",type = "l")+ #,lty=1, lwd=1)+
   #guides(fill=guide_legend(title="Transições de Remoções", color = "black", family = "fonte.tt", face = "bold"))+
-  ylab("Millions of tonnes of CO2e (GWP-AR5)") +
+  ylab(expression(bold("Millions of tonnes of CO"["2"]*"e (GWP-AR5)"))) +
+  #ylab(bquote(bold("Millions of tonnes of CO"[bold(2)]*"e (GWP-AR5)")))+
+  #ylab(bquote("Millions of tonnes of " * CO[2] * e ~ (GWP-AR5))) +
+  #theme(axis.title.y = element_text(face = "bold"))+
   xlab(" ")+
   scale_y_continuous(limits=c(-1000, 1000), breaks = c( -1000, -800,-600,-400,-200,0,200,400,600,800,1000))+
   scale_fill_manual(values=c("#fcd5b5","#c0504d","#9bbb59","#4f6228"))+
@@ -162,8 +165,6 @@ plot11 <- df %>%
 plot(plot11)
 
 
-
-
 p<- ggpubr::ggarrange(plot11, plot2,
                       ncol=2,
                       widths= c(.2,1),
@@ -182,13 +183,10 @@ plot(p)
 
 
 
-
-ggsave("Figure6_2024_12-12.jpeg", plot = p, 
+ggsave("Figure634_2024_12-12.jpeg", plot = p, 
        width = 8,
        height = 6,
        #units = c("cm"),
-       dpi = 330)
-
-
+       dpi = 600)
 
 
