@@ -192,7 +192,7 @@ df <- df %>%
 
 #############################
 
-windowsFonts(fonte.tt= windowsFont("TT Times New Roman"))
+??windowsFonts(fonte.tt= windowsFont("TT Times New Roman"))
 
 
 plot1 <- df %>%
@@ -221,7 +221,8 @@ plot1 <- df %>%
   guides(fill=guide_legend(nrow = 3, byrow = T))+        
   #theme_bw()+
   theme_classic()+
-  theme(legend.position=c(.5,.1), legend.box = "horizontal",legend.justification = "center")+
+  #theme(legend.position=c(.5,.1), legend.box = "horizontal",legend.justification = "center")+
+  theme(legend.position="bottom")+
   theme(legend.key = element_blank())+
   theme(legend.key.height = unit(0.1, "mm"))+
   theme(legend.background = element_blank())+
@@ -231,18 +232,24 @@ plot1 <- df %>%
   theme(axis.title.x = element_text(color = "black",family = "fonte.tt", size=9, face = "bold"))+
   theme(axis.title.y = element_text(color = "black",family = "fonte.tt", size=10, face = "bold"))+ #Aqui é a legenda do eixo y 
   theme(axis.text.x = element_text(color = "black",family = "fonte.tt",size=9, angle = 90,vjust = 0.5, hjust=1))+ #Aqui é a legenda do eixo x
-  theme(axis.text.y = element_text(color = "black",family = "fonte.tt",size=9)) #Aqui é a legenda do eixo y
+  theme(axis.text.y = element_text(color = "black",family = "fonte.tt",size=9))+
+  theme(text = element_text(family = "TT Times New Roman"))
+
+#Aqui é a legenda do eixo y
 plot(plot1)
 
 
-plot2<- plot1+ theme(legend.position="bottom")
+#plot2<- plot1+ theme(legend.position="bottom")
 
+plot1 <- plot1 + theme(
+  text = element_text(family = "Times New Roman")
+)
 
-
-ggsave("Figure4_OK.jpeg", plot = plot2, 
-       width = 15,
-       height = 12,
-       units = c("cm"),
+ggsave("Figure4_2024.jpeg", plot = plot1, 
+       #width = 15,
+       #height = 12,
+       #units = c("cm"),
+       #options = "type = TT Times New Roman",
        dpi = 330)
 
 
