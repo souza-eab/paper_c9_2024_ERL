@@ -183,10 +183,12 @@ plot(p)
 
 
 
-ggsave("Figure634_2024_12-12.jpeg", plot = p, 
+ggsave("Figure6344_2024_12-12.jpeg", plot = p, 
        width = 8,
        height = 6,
        #units = c("cm"),
        dpi = 600)
+
+
 
 
