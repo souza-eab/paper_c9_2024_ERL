@@ -192,8 +192,8 @@ df <- df %>%
 
 #############################
 
-??windowsFonts(fonte.tt= windowsFont("TT Times New Roman"))
-
+windowsFonts(fonte.tt= windowsFont("TT Times New Roman"))
+windowsFonts(fonte.tt=windowsFont("Times New Roman"))
 
 plot1 <- df %>%
   #filter (`NIVEL 2` == "Remoção por Mudança de Uso da Terra" |
@@ -209,7 +209,8 @@ plot1 <- df %>%
                                                                 'Removals in protected areas'))))+
   geom_bar(position="stack", stat="identity", na.rm = T, width = 0.6)+
   geom_hline(yintercept = 0, show.legend =F, colour = "black")+
-  ylab("Millions of tonnes of CO2e (GWP-AR5)") +
+  #ylab("Millions of tonnes of CO2e (GWP-AR5)") +
+  ylab(expression(bold("Millions of tonnes of CO"["2"]*"e (GWP-AR5)"))) +
   xlab(" ")+
   scale_y_continuous(limits=c(-1000, 2500), breaks = c(-1000, -500, 0, 500, 1000,1500, 2000,2500))+
   scale_fill_manual(values=c("#fcd5b5","#c0504d","#9bbb59","#4f6228"))+
@@ -245,11 +246,12 @@ plot1 <- plot1 + theme(
   text = element_text(family = "Times New Roman")
 )
 
-ggsave("Figure4_2024.jpeg", plot = plot1, 
-       #width = 15,
-       #height = 12,
+
+
+ggsave("Figure4_2024BB.jpeg", plot = plot1, 
+       width = 8,
+       height = 6,
        #units = c("cm"),
-       #options = "type = TT Times New Roman",
-       dpi = 330)
+       dpi = 600)
 
 
